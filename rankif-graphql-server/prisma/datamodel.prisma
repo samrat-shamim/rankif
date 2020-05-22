@@ -1,0 +1,19 @@
+type User {
+     id: ID! @id
+     createdAt: DateTime! @createdAt
+     Name: String!
+     Email: String! @unique
+}
+
+type Post {
+     id: ID! @id
+     UserId: ID!
+     Text: String!
+     Attachments: [String] @scalarList(strategy: RELATION)
+     LikeCount: Int!
+     CommentCount: Int!
+     ShareCount: Int!
+     Score: Float!
+     createdAt: DateTime! @createdAt
+     updatedAt: DateTime! @updatedAt
+ }
