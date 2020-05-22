@@ -1,0 +1,19 @@
+type Query {
+     users: [User!]
+     posts: [Post!]
+ }
+ type User {
+     id: ID!
+     Name: String!
+     Email: String!
+ }
+ type Post {
+     id: ID!
+     UserId: ID!
+     Text: String!
+     Attachments: [String]
+     LikeCount: Int!
+     CommentCount: Int!
+     ShareCount: Int!
+     Score: Float!
+ }
