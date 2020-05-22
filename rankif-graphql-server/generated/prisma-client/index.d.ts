@@ -338,10 +338,10 @@ export interface PostCreateInput {
   UserId: ID_Input;
   Text: String;
   Attachments?: Maybe<PostCreateAttachmentsInput>;
-  LikeCount: Int;
-  CommentCount: Int;
-  ShareCount: Int;
-  Score: Float;
+  LikeCount?: Maybe<Int>;
+  CommentCount?: Maybe<Int>;
+  ShareCount?: Maybe<Int>;
+  Score?: Maybe<Float>;
 }
 
 export interface PostCreateAttachmentsInput {
@@ -419,10 +419,10 @@ export interface Post {
   UserId: ID_Output;
   Text: String;
   Attachments: String[];
-  LikeCount: Int;
-  CommentCount: Int;
-  ShareCount: Int;
-  Score: Float;
+  LikeCount?: Int;
+  CommentCount?: Int;
+  ShareCount?: Int;
+  Score?: Float;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -679,10 +679,10 @@ export interface PostPreviousValues {
   UserId: ID_Output;
   Text: String;
   Attachments: String[];
-  LikeCount: Int;
-  CommentCount: Int;
-  ShareCount: Int;
-  Score: Float;
+  LikeCount?: Int;
+  CommentCount?: Int;
+  ShareCount?: Int;
+  Score?: Float;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }

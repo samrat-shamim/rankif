@@ -1,23 +1,11 @@
 import {GraphQLServer} from 'graphql-yoga'
 import {prisma} from "../generated/prisma-client";
+import {Mutation} from "./resolvers/mutations";
+import {Query} from "./resolvers/query";
 
 const resolvers = {
-    Query: {
-        posts: (root: any, args: any, context: any) => {
-            return context.prisma.posts();
-        },
-        users: (root: any, args: any, context: any) => {
-            return context.prisma.users();
-        },
-    },
-    Mutation: {
-        createUser: (root: any, args: any, context: any) => {
-            return context.prisma.createUser({
-                Name: args.Name,
-                Email: args.Email
-            })
-        }
-    }
+    Query,
+    Mutation
 }
 
 const server = new GraphQLServer({

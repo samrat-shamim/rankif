@@ -1,23 +1,35 @@
 type Query {
-     users: [User!]
-     posts: [Post!]
- }
- type User {
-     id: ID!
-     Name: String!
-     Email: String!
- }
- type Post {
-     id: ID!
-     UserId: ID!
-     Text: String!
-     Attachments: [String]
-     LikeCount: Int!
-     CommentCount: Int!
-     ShareCount: Int!
-     Score: Float!
- }
+    users: [User!]
+    posts: [Post!]
+    user(id: ID!): User
+    post(id: ID!): Post
+}
+type User {
+    id: ID!
+    Name: String!
+    Email: String!
+}
+type Post {
+    id: ID!
+    UserId: ID!
+    Text: String!
+    Attachments: [String]
+    LikeCount: Int!
+    CommentCount: Int!
+    ShareCount: Int!
+    Score: Float!
+}
+input PostUpdatePayload{
+    Text: String!
+    Attachments: [String]
+    LikeCount: Int!
+    CommentCount: Int!
+    ShareCount: Int!
+    Score: Float!
+}
 
 type Mutation {
     createUser(Name: String!, Email: String!): User!
+    createPost(Attachments: [String], CommentCount: Int,LikeCount: Int,Score: Int,ShareCount: Int,Text: String!,UserId: ID!):Post!
+    updatePost(data: PostUpdatePayload , id: ID!): Post!
 }

@@ -10,10 +10,10 @@ type Post {
      UserId: ID!
      Text: String!
      Attachments: [String] @scalarList(strategy: RELATION)
-     LikeCount: Int!
-     CommentCount: Int!
-     ShareCount: Int!
-     Score: Float!
+     LikeCount: Int
+     CommentCount: Int
+     ShareCount: Int
+     Score: Float
      createdAt: DateTime! @createdAt
      updatedAt: DateTime! @updatedAt
  }

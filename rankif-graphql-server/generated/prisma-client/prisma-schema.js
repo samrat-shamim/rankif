@@ -56,10 +56,10 @@ type Post {
   UserId: ID!
   Text: String!
   Attachments: [String!]!
-  LikeCount: Int!
-  CommentCount: Int!
-  ShareCount: Int!
-  Score: Float!
+  LikeCount: Int
+  CommentCount: Int
+  ShareCount: Int
+  Score: Float
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -79,10 +79,10 @@ input PostCreateInput {
   UserId: ID!
   Text: String!
   Attachments: PostCreateAttachmentsInput
-  LikeCount: Int!
-  CommentCount: Int!
-  ShareCount: Int!
-  Score: Float!
+  LikeCount: Int
+  CommentCount: Int
+  ShareCount: Int
+  Score: Float
 }
 
 type PostEdge {
@@ -116,10 +116,10 @@ type PostPreviousValues {
   UserId: ID!
   Text: String!
   Attachments: [String!]!
-  LikeCount: Int!
-  CommentCount: Int!
-  ShareCount: Int!
-  Score: Float!
+  LikeCount: Int
+  CommentCount: Int
+  ShareCount: Int
+  Score: Float
   createdAt: DateTime!
   updatedAt: DateTime!
 }
