@@ -17,3 +17,7 @@ type Query {
      ShareCount: Int!
      Score: Float!
  }
+
+type Mutation {
+    createUser(Name: String!, Email: String!): User!
+}

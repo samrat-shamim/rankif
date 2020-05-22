@@ -1,28 +1,28 @@
-import { GraphQLServer } from 'graphql-yoga'
-const users = [
-    {
-        id: 1,
-        Name: "Samrat",
-        Email: "samrat@rankif.com"
-    }
-]
-const posts = [{
-    id: 1,
-    UserId: 1,
-    Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    Attachments: [],
-    LikeCount: 5,
-    CommentCount: 2,
-    ShareCount: 1,
-    Score: 8
-}]
+import {GraphQLServer} from 'graphql-yoga'
+import {prisma} from "../generated/prisma-client";
 
-const resolvers  = {
-    Query:{
-        posts: ()=> posts,
-        users: ()=> users
+const resolvers = {
+    Query: {
+        posts: (root: any, args: any, context: any) => {
+            return context.prisma.posts();
+        },
+        users: (root: any, args: any, context: any) => {
+            return context.prisma.users();
+        },
+    },
+    Mutation: {
+        createUser: (root: any, args: any, context: any) => {
+            return context.prisma.createUser({
+                Name: args.Name,
+                Email: args.Email
+            })
+        }
     }
 }
 
-const server = new GraphQLServer({typeDefs: './src/schema.graphql', resolvers })
+const server = new GraphQLServer({
+    typeDefs: './src/schema.graphql',
+    resolvers,
+    context: {prisma}
+})
 server.start(() => console.log(`Server is running on http://localhost:4000`))
