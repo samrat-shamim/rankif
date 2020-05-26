@@ -3,3 +3,4 @@ rankif-graphql-server/dist/
 rankif-graphql-server/node_modules/
 .idea/
 rankif-graphql-server/generated/
+kompose.exe
