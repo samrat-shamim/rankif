@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "rankifback"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "rankifback"
+    spec:
+      containers:
+        - name: "rankifback"
+          image: "testrankif.azurecr.io/rankifback"
+          ports:
+          - containerPort: 4000
