@@ -9,6 +9,7 @@ type User {
     Name: String!
     Email: String!
 }
+
 type Post {
     id: ID!
     UserId: ID!
