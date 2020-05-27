@@ -1,0 +1,25 @@
+{
+  "name": "rankif",
+  "version": "1.0.0",
+  "description": "Ranks you facebook posts. Users sign in with their facebook account allowing their public profile access to the application. The application collects their public posts and displays the ranking based on popularity. The popularity of an object is determined by the weighted sum of its counts of like, comment and shares.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "build-kub": "./bin/build-kub-manifest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samrat-shamim/rankif.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samrat-shamim/rankif/issues"
+  },
+  "homepage": "https://github.com/samrat-shamim/rankif#readme",
+  "dependencies": {
+    "merge-yaml": "^1.1.0"
+  }
+}
