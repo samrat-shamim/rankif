@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-prod": "tsc",
     "build": "tsc -w",
     "prisma-deploy": "prisma deploy prisma",
     "start": "node dist/index.js",
