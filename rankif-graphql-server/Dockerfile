@@ -1,6 +1,7 @@
 FROM node:latest
 WORKDIR /usr/src/app/graphqlApp
 COPY package.json /usr/src/app/graphqlApp
+COPY tsconfig.json /usr/src/app/graphqlApp
 RUN npm install
 RUN npm run build-prod
 COPY ./dist/ /usr/src/app/graphqlApp/dist
