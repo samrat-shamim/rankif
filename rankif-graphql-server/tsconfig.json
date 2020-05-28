@@ -3,12 +3,17 @@
     "target": "es5",
     "module": "commonjs",
     "outDir": "dist",
-    "strict": true,
     "esModuleInterop": true,
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "types": [
+    ],
     "paths": {
-      "schema/*": ["/src/schema"],
-      "generated/*": ["/generated"]
+      "schema/*": [
+        "/src/schema"
+      ],
+      "generated/*": [
+        "/generated"
+      ]
     }
   }
 }
