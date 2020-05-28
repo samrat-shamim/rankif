@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: rankif 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rankif 
+    spec:
+      containers:
+        - name: rankif 
+          image: rankif.azurecr.io/rankif
+          ports:
+          - containerPort: 4000
