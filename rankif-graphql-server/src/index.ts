@@ -27,7 +27,12 @@ async function deployPrisma() {
         if (err) {
             waitAndDeployAgain();
         } else {
-           if (await startApplication() !=0){
+            const status = await startApplication()
+           if ( status !=0){
+               console.log(status);
+               exec("ls", (e, stdout, stderr)=>{
+                   console.log(e, stdout, stderr);
+               })
                waitAndDeployAgain();
            }
         }
