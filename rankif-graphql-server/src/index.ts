@@ -6,16 +6,18 @@ const resolvers = {
     Query,
     Mutation
 }
+
 async function importPrisma() {
     // @ts-ignore
-    return  await import("../generated/prisma-client");
+    return await import("../generated/prisma-client");
 
 }
-importPrisma().then(prisma=> {
+
+importPrisma().then(prisma => {
     const server = new GraphQLServer({
         typeDefs: 'schema/schema.graphql',
         resolvers,
-        context: {prisma}
+        context: {prisma: prisma.prisma}
     })
     server.start(() => console.log(`Server is running on http://localhost:4000`))
 }, error => {
