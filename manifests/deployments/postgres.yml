@@ -7,6 +7,9 @@ spec:
   strategy:
     type: Recreate
   template:
+    metadata:
+      labels:
+        app: postgres-db
     spec:
       containers:
         - env:
@@ -26,6 +29,5 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-        - name: postgres-db-claim0
-          persistentVolumeClaim:
-            claimName: postgres-db-claim0
+        - name: redis-storage
+          emptyDir: {}

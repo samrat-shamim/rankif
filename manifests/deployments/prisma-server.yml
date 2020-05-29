@@ -4,9 +4,9 @@ metadata:
   name: prisma
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: prisma
+  metadata:
+    labels:
+      app: prisma
   strategy: {}
   template:
     metadata:
