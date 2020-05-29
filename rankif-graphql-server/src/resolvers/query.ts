@@ -3,7 +3,14 @@ function posts(root: any, args: any, context: any) {
 }
 
 function users(root: any, args: any, context: any) {
-    return context.prisma.users();
+    return context.prisma.users({
+        where: {
+            Name_contains: args.Filter && args.Filter.SearchKey || ''
+        },
+        skip: (args.Filter && (args.Filter.PageNumber || 0) * (args.Filter.PageSize || 10)) || 0,
+        first:  args.Filter &&  args.Filter.PageSize || 10,
+        orderBy: <any>(args.Sort ? (args.Sort.OrderBy + '_' + (args.Sort.Order > 0 ? 'ASC': 'DESC') ): 'createdAt_ASC')
+    })
 }
 
 function post(root: any, args: any, context: any) {

@@ -2,3 +2,8 @@ rankif-graphql-server/package-lock.json
 rankif-graphql-server/dist/
 rankif-graphql-server/node_modules/
 .idea/
+rankif-graphql-server/generated/
+kompose.exe
+package-lock.json
+node_modules/
+test.json

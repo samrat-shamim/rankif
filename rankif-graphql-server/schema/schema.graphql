@@ -1,5 +1,5 @@
 type Query {
-    users: [User!]
+    users(Filter: UserFilterPayload, Sort: UserSortPayload): [User!]
     posts: [Post!]
     user(id: ID!): User
     post(id: ID!): Post
@@ -9,23 +9,33 @@ type User {
     Name: String!
     Email: String!
 }
+
 type Post {
     id: ID!
     UserId: ID!
     Text: String!
     Attachments: [String]
-    LikeCount: Int!
-    CommentCount: Int!
-    ShareCount: Int!
-    Score: Float!
+    LikeCount: Int
+    CommentCount: Int
+    ShareCount: Int
+    Score: Float
 }
 input PostUpdatePayload{
-    Text: String!
+    Text: String
     Attachments: [String]
-    LikeCount: Int!
-    CommentCount: Int!
-    ShareCount: Int!
-    Score: Float!
+    LikeCount: Int
+    CommentCount: Int
+    ShareCount: Int
+    Score: Float
+}
+input UserFilterPayload{
+    SearchKey: String
+    PageNumber: Int
+    PageSize: Int
+}
+input UserSortPayload{
+    OrderBy: String!
+    Order: Int!
 }
 
 type Mutation {
