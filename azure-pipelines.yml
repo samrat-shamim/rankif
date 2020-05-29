@@ -52,7 +52,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: '.rankif'
+    environment: 'rankif-1841'
     strategy:
       runOnce:
         deploy:
