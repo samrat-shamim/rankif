@@ -10,7 +10,7 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection:  'efcf7060-1c9a-421d-af47-290977b6a2e3'
+  dockerRegistryServiceConnection:  '2a371ea3-cedf-495b-89fd-0bbcf3956987'
   imageRepository: 'graphql'
   containerRegistry: 'rankif.azurecr.io'
   dockerfilePath: '**/Dockerfile'
