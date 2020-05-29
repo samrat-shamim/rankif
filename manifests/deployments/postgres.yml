@@ -23,9 +23,10 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /data/postgres
-              name: postgres-db-claim0
+              name: postgres-data
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-        - name: postgres-db-claim0
-          emptyDir: {}
+        - name: data
+          persistentVolumeClaim:
+            claimName: postgres-data
