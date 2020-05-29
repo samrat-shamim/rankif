@@ -1,13 +1,13 @@
 version: "3"
 services:
-  graphql:
-    container_name: graphqlAPP
+  postgres-db:
+    image: postgres:10.3
     restart: always
-    build: rankif-graphql-server
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
     ports:
-    - "4000:4000"
-    links:
-      - prisma
+      - '5432:5432'
   prisma:
     image: prismagraphql/prisma:1.34
     restart: always
@@ -25,15 +25,11 @@ services:
             password: 12345
     links:
       - postgres-db
-  postgres-db:
-    image: postgres:10.3
+  graphql:
+    container_name: graphqlAPP
     restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345
+    build: rankif-graphql-server
     ports:
-      - '5432:5432'
-    volumes:
-      - /data/postgres
-volumes:
-  postgres: ~
+    - "4000:4000"
+    links:
+      - prisma

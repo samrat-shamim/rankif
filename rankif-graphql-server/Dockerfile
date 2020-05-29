@@ -8,4 +8,4 @@ COPY ./schema/ /usr/src/app/graphqlApp/schema
 RUN npm install
 RUN npm run build-prod
 EXPOSE 4000
-CMD npm run prisma-deploy && npm start
+CMD npm start
