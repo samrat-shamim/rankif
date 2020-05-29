@@ -21,7 +21,7 @@ spec:
                     port: 5432
                     user: postgres
                     password: 12345
-          image: prismagraphql/prisma
+          image: prismagraphql/prisma:1.34
           imagePullPolicy: ""
           name: prisma
           ports:

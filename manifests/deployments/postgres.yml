@@ -15,7 +15,7 @@ spec:
               value: "12345"
             - name: POSTGRES_USER
               value: postgres
-          image: postgres
+          image: postgres:10.3
           imagePullPolicy: ""
           name: postgres-db
           ports:
