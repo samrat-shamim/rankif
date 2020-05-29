@@ -1,0 +1,28 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: prisma
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prisma
+    spec:
+      containers:
+        - env:
+            - name: PRISMA_CONFIG
+              value: |
+                port: 4466
+                databases:
+                  default:
+                    connector: postgres
+                    host: postgres-db
+                    port: 5432
+                    user: postgres
+                    password: 12345
+          image: prismagraphql/prisma
+          imagePullPolicy: ""
+          name: prisma
+          ports:
+            - containerPort: 4466
