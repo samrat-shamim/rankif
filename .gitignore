@@ -6,3 +6,4 @@ rankif-graphql-server/generated/
 kompose.exe
 package-lock.json
 node_modules/
+test.json

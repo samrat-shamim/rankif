@@ -15,18 +15,8 @@ spec:
               value: "12345"
             - name: POSTGRES_USER
               value: postgres
-          image: postgres:10.3
+          image: postgres
           imagePullPolicy: ""
           name: postgres-db
           ports:
             - containerPort: 5432
-          resources: {}
-          volumeMounts:
-            - mountPath: /data/postgres
-              name: postgres-data
-      restartPolicy: Always
-      serviceAccountName: ""
-      volumes:
-        - name: postgres-data
-          persistentVolumeClaim:
-            claimName: postgres-data
