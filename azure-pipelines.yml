@@ -69,9 +69,7 @@ stages:
             displayName: Deploy to Kubernetes cluster
             inputs:
               action: deploy
-              manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+              manifests: manifests/deployment.yml|manifests/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
