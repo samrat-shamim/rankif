@@ -27,6 +27,6 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-        - name: data
+        - name: postgres-data
           persistentVolumeClaim:
             claimName: postgres-data
