@@ -25,6 +25,7 @@ async function deployPrisma() {
     console.log("Deploying prisma for " + i + "th time");
     exec("npm run prisma-deploy", async (err, stdout) => {
         if (err) {
+            console.log(err);
             waitAndDeployAgain();
         } else {
             const status = await startApplication()
