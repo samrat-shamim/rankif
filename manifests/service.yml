@@ -3,13 +3,13 @@ items:
 - apiVersion: v1
   kind: Service
   metadata:
-        name: graphql
+    name: graphql
   spec:
     type: LoadBalancer
     ports:
     - port: 80
     selector:
-        app: graphql
+      app: graphql
 
 - apiVersion: v1
   kind: Service
@@ -17,9 +17,9 @@ items:
     name: postgres-db
   spec:
     ports:
-        - name: "5432"
-            port: 5432
-            targetPort: 5432
+    - name: "5432"
+        port: 5432
+        targetPort: 5432
     selector:
         app: postgres-db
 
@@ -29,8 +29,8 @@ items:
     name: prisma
   spec:
     ports:
-        - name: "4466"
-        port: 4466
-        targetPort: 4466
+      - name: "4466"
+      port: 4466
+      targetPort: 4466
     selector:
         app: prisma
