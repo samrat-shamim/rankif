@@ -11,7 +11,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '3456eb0e-23fc-4bed-8db1-7c955c6c6fff'
-  imageRepository: 'rankif'
+  imageRepository: 'graphql'
   containerRegistry: 'rankif.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -32,13 +32,12 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: DockerCompose@0
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: 'Azure for Students (7712c3e3-6b50-46de-8df0-7142f7033ed0)'
-        azureContainerRegistry: '{"loginServer":"rankif.azurecr.io", "id" : "/subscriptions/7712c3e3-6b50-46de-8df0-7142f7033ed0/resourceGroups/rankif/providers/Microsoft.ContainerRegistry/registries/rankif"}'
-        dockerComposeFile: '**/docker-compose.yml'
-        action: 'Build services'
+      - task: Docker@2
+        inputs:
+          containerRegistry: $(dockerRegistryServiceConnection)
+          repository: $(imageRepository)
+          command: 'buildAndPush'
+          Dockerfile: $(dockerfilePath)
           
     - upload: manifests
       artifact: manifests
