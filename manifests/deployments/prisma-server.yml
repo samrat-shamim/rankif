@@ -4,14 +4,10 @@ metadata:
   name: prisma
 spec:
   replicas: 1
-  metadata:
-    labels:
-      app: prisma
-  strategy: {}
   template:
     metadata:
-      annotations:
-      creationTimestamp: null
+      labels:
+        app: prisma
     spec:
       containers:
         - env:

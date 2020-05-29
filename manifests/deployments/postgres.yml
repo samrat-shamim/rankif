@@ -4,8 +4,6 @@ metadata:
   name: postgres-db
 spec:
   replicas: 1
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
@@ -29,5 +27,5 @@ spec:
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
-        - name: redis-storage
+        - name: postgres-db-claim0
           emptyDir: {}
